@@ -55,11 +55,6 @@ class URLWithQueryNode(BaseQueryNode, URLNode):
         self.remove = remove
 
     def get_url(self, context):
-        try:
-            self.view_name = self.view_name.resolve(context)
-        except AttributeError:
-            pass
-
         return URLNode.render(self, context), {}
 
 class WithQueryNode(BaseQueryNode, template.Node):
